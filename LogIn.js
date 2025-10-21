@@ -59,10 +59,6 @@ const LogIn = () => {
     }
   }, [response]);
 
-
-  console.log("Redirect URI:", makeRedirectUri({ useProxy: true }));
-
-
   return (
     <KeyboardAvoidingView 
       style={styles.fullScreen}
@@ -120,7 +116,7 @@ const LogIn = () => {
           <View style={styles.line} />
         </View>
 
-        {/* 🔹 BOTÓN GOOGLE */}
+        {/* BOTÓN GOOGLE */}
         <PaperButton 
           mode="text" 
           icon="google"
@@ -132,6 +128,7 @@ const LogIn = () => {
           Continuar con Google
         </PaperButton>
 
+        {/* BOTÓN APPLE */}
         <PaperButton 
           mode="text" 
           icon="apple"

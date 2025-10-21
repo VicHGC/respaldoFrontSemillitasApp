@@ -5,16 +5,28 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importa tus pantallas
 import LogIn from './LogIn';
+import FatherMain from './FatherMain';
 
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
   return (
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Login">
+    //     <Stack.Screen 
+    //       name="Login" 
+    //       component={LogIn} 
+    //       options={{ headerShown: false }} // Ocultar la barra de navegación en el Login
+    //     />     
+        
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="FatherMain">
         <Stack.Screen 
-          name="Login" 
-          component={LogIn} 
+          name="FatherMain" 
+          component={FatherMain} 
           options={{ headerShown: false }} // Ocultar la barra de navegación en el Login
         />     
         
