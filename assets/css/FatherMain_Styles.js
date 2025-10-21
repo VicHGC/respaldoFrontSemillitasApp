@@ -5,8 +5,8 @@ export const COLORS = {
     ACCENT_YELLOW: '#FFD700',   
     WHITE: '#FFFFFF',           
     TEXT: '#ffffffff',            
-    CARD_BACKGROUND: '#72024bff',
-    BORDER_GRAY: '#c0c0c0ff',     
+    CARD_BACKGROUND: '#eea3e7ff',
+    BORDER_GRAY: '#070606ff',     
 };
 
 // Definición de los estilos de la vista principal
