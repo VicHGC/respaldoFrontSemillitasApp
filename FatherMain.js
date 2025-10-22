@@ -5,16 +5,19 @@ import {
     ScrollView,
     TouchableOpacity, 
     Image, 
+    StyleSheet // Añadimos StyleSheet para los estilos de los iconos
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './assets/css/FatherMain_Styles'; 
 
-// 💡 IMPORTACIÓN DE IMAGEN LOCAL: Usamos require() para la imagen local
-const UserIconLocal = require('./assets/FatherMainAssets/User.png'); 
+// 💡 IMPORTACIÓN DE IMÁGENES LOCALES
+const UserIconLocal = require('./assets/FatherMainAssets/User.png'); // Icono de usuario para las tarjetas
+const MenuIconLocal = require('./assets/FatherMainAssets/MenuIcon.png'); // Icono del menú
+const SemillinIconLocal = require('./assets/FatherMainAssets/Semillin.png'); // Imagen de Semillín
 
 const FatherMain = () => {
 
-    // Simulación de datos de hijos: En la aplicación real, estos vendrían de la API/DB.
+    // Simulación de datos de hijos: ¡TUS TARJETAS ESTÁN AQUÍ!
     const childrenData = [
         { id: 1, name: "Lucas", avatarSource: UserIconLocal, info: "5 años | Nivel Básico" },
         { id: 2, name: "Sofía", avatarSource: UserIconLocal, info: "8 años | Nivel Intermedio" },
@@ -22,12 +25,30 @@ const FatherMain = () => {
     ];
 
     return (
-        // El contenedor principal usa SafeAreaView para manejar el notch y la barra de estado
         <SafeAreaView style={styles.container}> 
             
-            {/* 1. BARRA SUPERIOR (HEADER) */}
+            {/* 1. BARRA SUPERIOR (HEADER) con los dos iconos */}
             <View style={styles.header}>
+                
+                {/* 1A. BOTÓN DE MENÚ (Izquierda) */}
+                <TouchableOpacity style={localStyles.iconWrapperLeft} onPress={() => console.log('Botón Menú presionado')}>
+                    <Image 
+                        source={MenuIconLocal} 
+                        style={localStyles.menuIcon}
+                    />
+                </TouchableOpacity>
+
+                {/* 1B. TÍTULO CENTRAL */}
                 <Text style={styles.headerText}>Semillitas</Text>
+
+                {/* 1C. IMAGEN DE SEMILLÍN (Derecha) */}
+                <View style={localStyles.iconWrapperRight}>
+                    <Image 
+                        source={SemillinIconLocal} 
+                        style={localStyles.semillinImage}
+                    />
+                </View>
+
             </View>
 
             {/* 2. CONTENIDO PRINCIPAL (SCROLLABLE) */}
@@ -38,30 +59,25 @@ const FatherMain = () => {
                     Añade un nuevo Hijo
                 </Text>
 
+                {/* 💡 TARJETAS DE HIJOS: ¡ESTE CÓDIGO PERMANECE INTACTO! */}
                 {childrenData.map(child => (
                     <TouchableOpacity 
                         key={child.id} 
                         style={styles.card}
                         onPress={() => console.log('Abriendo perfil de:', child.name)}
                     >
-                        {/* 🎨 ESTRUCTURA FLEXBOX PARA AVATAR Y TEXTO */}
                         <View style={styles.cardContentWrapper}> 
-                            
-                            {/* IMAGEN DEL USUARIO (AVATAR) */}
                             <Image source={child.avatarSource} style={styles.avatarImage}/>
-                            
-                            {/* DATOS DEL HIJO */}
                             <View style={styles.textContainer}>
                                 <Text style={styles.cardTitle}>{child.name}</Text>
                                 <Text style={styles.cardSubtitle}>{child.info}</Text>
                             </View>
-
                         </View>
                     </TouchableOpacity>
                 ))}
                 
-                {/* Espacio final (si es necesario para el scroll) */}
-                <View style={{height: 300}}/> 
+                {/* Espacio final */}
+                <View style={{height: 500}}/> 
             </ScrollView>
 
             {/* 3. BARRA INFERIOR (FOOTER) */}
@@ -76,3 +92,35 @@ const FatherMain = () => {
 };
 
 export default FatherMain;
+
+// Estilos necesarios para posicionar los iconos en el Header
+const localStyles = StyleSheet.create({
+    iconWrapperLeft: {
+        position: 'absolute',
+        left: 10,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        zIndex: 10, 
+    },
+    menuIcon: {
+        width: 30,
+        height: 30,
+        resizeMode: 'contain',
+        tintColor: '#FFFFFF',
+    },
+    iconWrapperRight: {
+        position: 'absolute',
+        right: 10,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        zIndex: 10,
+    },
+    semillinImage: {
+        width: 40,
+        height: 40,
+        borderRadius: 20, 
+        resizeMode: 'cover',
+    },
+});
