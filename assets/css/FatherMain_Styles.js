@@ -9,9 +9,37 @@ export const COLORS = {
     BORDER_GRAY: '#070606ff',     
 };
 
-// Definición de los estilos de la vista principal
 export const styles = StyleSheet.create({
-    // 1. Contenedor principal que se extiende por toda la pantalla
+
+    iconWrapperLeft: {
+        position: 'absolute',
+        left: 10,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        zIndex: 10, 
+    },
+    menuIcon: {
+        width: 30,
+        height: 30,
+        resizeMode: 'contain',
+        tintColor: '#FFFFFF',
+    },
+    iconWrapperRight: {
+        position: 'absolute',
+        right: 10,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        zIndex: 10,
+    },
+    semillinImage: {
+        width: 55,
+        height: 55,
+        borderRadius: 20, 
+        resizeMode: 'cover',
+    },
+
     container: {
         flex: 1,
         backgroundColor: COLORS.ACCENT_YELLOW, 
@@ -86,21 +114,4 @@ export const styles = StyleSheet.create({
         color: COLORS.TEXT,
         opacity: 0.7, 
     },
-    
-    // 5. Estilo de la barra inferior
-    footer: {
-        height: 60, 
-        backgroundColor: COLORS.PRIMARY, 
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    footerText: {
-        color: COLORS.WHITE,
-        fontSize: 14,
-    },
-    footerNavContainer: { 
-        flexDirection: 'row', 
-        justifyContent: 'space-around', 
-        width: '100%' 
-    }
 });

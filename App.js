@@ -1,38 +1,35 @@
-// App.js (o archivo de Navegación principal)
-import * as React from 'react';
+// App.js
+import 'react-native-gesture-handler'; // 🔹 Debe estar arriba de todo
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Importa tus pantallas
+// 🔹 Importa tus pantallas
 import LogIn from './LogIn';
-import FatherMain from './FatherMain';
+import Drawer from './navigation/Drawer'; // Asegúrate de tener este archivo en /navigation
 
 const Stack = createNativeStackNavigator();
 
-function AppNavigator() {
+export default function App() {
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Login">
-    //     <Stack.Screen 
-    //       name="Login" 
-    //       component={LogIn} 
-    //       options={{ headerShown: false }} // Ocultar la barra de navegación en el Login
-    //     />     
-        
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FatherMain">
+
+        <Stack.Screen 
+          name="LogIn" 
+          component={LogIn} 
+          options={{ headerShown: false }} 
+        />
+
         <Stack.Screen 
           name="FatherMain" 
-          component={FatherMain} 
-          options={{ headerShown: false }} // Ocultar la barra de navegación en el Login
-        />     
+          component={Drawer} 
+          options={{ headerShown: false }} 
+        />
         
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default AppNavigator; 
+
