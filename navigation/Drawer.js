@@ -2,6 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { View, Text } from 'react-native';
 import FatherMain from '../FatherMain';
+import CreateSon from '../CreateSon';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,11 +18,22 @@ export default function DrawerFunction() {
   return (
     <Drawer.Navigator
       screenOptions={{
-        headerShown: false, // usamos tu propio header en FatherMain
-        drawerActiveTintColor: '#4CAF50',
-        drawerLabelStyle: { fontSize: 16 },
+        headerShown: false, 
+        drawerActiveTintColor: '#ffffffff',
+        drawerInactiveTintColor: '#ffffffff',
+        drawerStyle: {
+          width: 240, 
+        },
+        drawerLabelStyle: { 
+          fontSize: 18, 
+          fontFamily: 'NuevaFuente', 
+        },
+        drawerContentStyle: { 
+          backgroundColor: '#00C8B3', // Un color de ejemplo (rojo muy claro)
+        },
       }}
     >
+      <Drawer.Screen name="createson" component={CreateSon}/>
       <Drawer.Screen name="Inicio" component={FatherMain} />
       <Drawer.Screen name="Configuración" component={ConfiguracionScreen} /> 
     </Drawer.Navigator>

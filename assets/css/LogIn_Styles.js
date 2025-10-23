@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-// Paleta de Colores
 export const COLORS = {
     BACKGROUND: '#00C8B3',        
     ACCENT_YELLOW: '#FFD700',   
@@ -10,7 +9,6 @@ export const COLORS = {
     BLACK: '#000000ff'     
 };
 
-// Estilos de la Interfaz
 export const styles = StyleSheet.create({
     fullScreen: {
         flex: 1,
@@ -40,11 +38,11 @@ export const styles = StyleSheet.create({
 
     title: {
         fontSize: 40,
-        fontWeight: '700',
         color: COLORS.ACCENT_YELLOW,
-        marginTop:-30,
+        marginTop:-20,
         marginBottom: 30,
         zIndex: 2, 
+        fontFamily: 'NuevaFuente',
     },
 
     textoCreaCuenta:{
@@ -68,7 +66,7 @@ export const styles = StyleSheet.create({
         marginBottom: 15,
         backgroundColor: COLORS.WHITE, 
         height: 55, 
-        outlineColor: COLORS.BLACK,      
+        outlineColor: COLORS.BLACK, 
     },
 
     LogInButton: {
@@ -87,6 +85,7 @@ export const styles = StyleSheet.create({
     loginButtonText: {
         color: COLORS.WHITE,
         fontSize: 16,
+        fontFamily: 'NuevaFuente',
     },
 
     QrButton: {
@@ -102,6 +101,7 @@ export const styles = StyleSheet.create({
     QrButtonText: {
         color: COLORS.WHITE,
         fontSize: 16,
+        fontFamily: 'NuevaFuente',
     },
 
     secondaryText: {

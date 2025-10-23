@@ -2,10 +2,11 @@ import { StyleSheet } from 'react-native';
 
 export const COLORS = {
     PRIMARY: '#00C8B3',         
-    ACCENT_YELLOW: '#FFD700',   
+    // ACCENT_YELLOW: '#ffec7eff',   
+    ACCENT_YELLOW: '#ffec7eff',   
     WHITE: '#FFFFFF',           
     TEXT: '#ffffffff',            
-    CARD_BACKGROUND: '#eea3e7ff',
+    CARD_BACKGROUND: '#11c87bff',
     BORDER_GRAY: '#070606ff',     
 };
 
@@ -46,16 +47,16 @@ export const styles = StyleSheet.create({
     },
     
     header: {
-        height: 50, 
+        height: 45, 
         backgroundColor: COLORS.PRIMARY, 
         justifyContent: 'flex-end', 
         alignItems: 'center',
-        paddingBottom: 10,
+        paddingBottom: 5,
     },
     headerText: {
         color: COLORS.WHITE,
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 35,
+        fontFamily: 'NuevaFuente',
     },
     
     content: {
@@ -69,6 +70,8 @@ export const styles = StyleSheet.create({
         color: COLORS.TEXT,
         marginBottom: 10,
         textAlign: 'center',
+        fontFamily: 'NuevaFuente',
+
     },
 
     card: {
@@ -83,17 +86,16 @@ export const styles = StyleSheet.create({
         elevation: 20, 
     },
 
-    // 💡 NUEVOS ESTILOS PARA LA ALINEACIÓN DEL AVATAR Y TEXTO
     cardContentWrapper: {
-        flexDirection: 'row', // Alinea la imagen y el texto horizontalmente
-        alignItems: 'center', // Centra verticalmente los elementos
+        flexDirection: 'row',
+        alignItems: 'center', 
     },
     
     avatarImage: {
         width: 60,            
         height: 60,
-        borderRadius: 30,     // Para hacerlo circular (mitad de 60)
-        marginRight: 15,      // Espacio entre la imagen y el texto
+        borderRadius: 30, 
+        marginRight: 15,     
         borderWidth: 2,       
         borderColor: COLORS.BORDER_GRAY, 
     },
@@ -105,13 +107,14 @@ export const styles = StyleSheet.create({
     
     cardTitle: {
         fontSize: 18,
-        fontWeight: 'bold',
         color: COLORS.TEXT,
+        fontFamily: 'NuevaFuente',
     },
     
     cardSubtitle: {
         fontSize: 14,
         color: COLORS.TEXT,
-        opacity: 0.7, 
+        opacity: 0.7,
+        fontFamily: 'NuevaFuente',
     },
 });
