@@ -3,12 +3,14 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './assets/css/FatherMain_Styles';
 import SideMenu from './SideMenu';
+import { useNavigation } from '@react-navigation/native'; 
 
 const UserIconLocal = require('./assets/FatherMainAssets/User.png');
 const MenuIconLocal = require('./assets/FatherMainAssets/MenuIcon.png');
 const SemillinIconLocal = require('./assets/FatherMainAssets/Semillin.png');
 
 const FatherMain = () => {
+  const navigation = useNavigation(); // <- OBTENER navegación
   const menuRef = useRef();
 
   const childrenData = [
@@ -19,7 +21,7 @@ const FatherMain = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
+
       <View style={styles.header}>
         <TouchableOpacity onPress={() => menuRef.current.toggleMenu()} style={styles.iconWrapperLeft}>
           <Image source={MenuIconLocal} style={styles.menuIcon} />
@@ -34,14 +36,14 @@ const FatherMain = () => {
 
       {/* Contenido principal */}
       <ScrollView style={styles.content} contentContainerStyle={{ flexGrow: 1 }}>
-        <Text style={styles.contentText}>Añade un nuevo Hijo</Text>
 
         {childrenData.map(child => (
           <TouchableOpacity
             key={child.id}
             style={styles.card}
             onPress={() => console.log('Abriendo perfil de:', child.name)}
-          >
+            >
+
             <View style={styles.cardContentWrapper}>
               <Image source={child.avatarSource} style={styles.avatarImage}/>
               <View style={styles.textContainer}>
@@ -49,11 +51,19 @@ const FatherMain = () => {
                 <Text style={styles.cardSubtitle}>{child.info}</Text>
               </View>
             </View>
+            
           </TouchableOpacity>
         ))}
 
         <View style={{ height: 500 }} />
       </ScrollView>
+
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => navigation.navigate('CreateSon')}
+      >
+        <Text style={styles.addButtonText}>+</Text>
+      </TouchableOpacity>
 
       {/* Menú lateral */}
       <SideMenu ref={menuRef} />

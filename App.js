@@ -1,5 +1,5 @@
 // App.js
-import 'react-native-gesture-handler'; // 🔹 Debe estar arriba de todo
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,11 +13,10 @@ import CreateSon from './CreateSon';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
     const [fontsLoaded] = useFonts({
         'NuevaFuente': require('./assets/fonts/Kids Bus.otf')
     });
-
-    if (!fontsLoaded) return null; // Espera a que las fuentes carguen
 
     return (
         <NavigationContainer>

@@ -1,19 +1,17 @@
 // SideMenu.js
 import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
-import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
+import { View, Text, TouchableOpacity, Animated } from 'react-native';
+import { sideMenuStyles, MENU_WIDTH } from './assets/css/SideMenu_Styles';
 
 const SideMenu = forwardRef((props, ref) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const drawerAnim = useRef(new Animated.Value(-SCREEN_WIDTH * 0.7)).current;
+  const drawerAnim = useRef(new Animated.Value(-MENU_WIDTH)).current;
 
-  // Permite que el padre controle abrir/cerrar el menú
   useImperativeHandle(ref, () => ({
     toggleMenu: () => {
       if (menuOpen) {
         Animated.timing(drawerAnim, {
-          toValue: -SCREEN_WIDTH * 0.7,
+          toValue: -MENU_WIDTH,
           duration: 300,
           useNativeDriver: true,
         }).start(() => setMenuOpen(false));
@@ -30,45 +28,27 @@ const SideMenu = forwardRef((props, ref) => {
 
   return (
     <>
-      {/* Overlay para cerrar el menú */}
       {menuOpen && (
         <TouchableOpacity
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.3)'
-          }}
+          style={sideMenuStyles.overlay}
           onPress={() => ref.current.toggleMenu()}
         />
       )}
 
-      {/* Drawer animado */}
       <Animated.View
-        style={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          bottom: 0,
-          width: SCREEN_WIDTH * 0.7,
-          backgroundColor: 'white',
-          padding: 20,
-          transform: [{ translateX: drawerAnim }],
-          shadowColor: '#000',
-          shadowOpacity: 0.3,
-          shadowOffset: { width: 3, height: 0 },
-          shadowRadius: 5,
-          elevation: 5,
-        }}
+        style={[
+          sideMenuStyles.container,
+          { transform: [{ translateX: drawerAnim }] },
+        ]}
       >
-        <Text style={{ fontSize: 18, marginBottom: 20 }}>Opciones del menú</Text>
-        <TouchableOpacity onPress={() => console.log('Opción 1')}>
-          <Text style={{ marginVertical: 10 }}>Opción 1</Text>
+        <Text style={sideMenuStyles.title}>Opciones del menú</Text>
+
+        <TouchableOpacity style={sideMenuStyles.option} onPress={() => console.log('Opción 1')}>
+          <Text style={sideMenuStyles.optionText}>Opción 1</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('Opción 2')}>
-          <Text style={{ marginVertical: 10 }}>Opción 2</Text>
+
+        <TouchableOpacity style={sideMenuStyles.option} onPress={() => console.log('Opción 2')}>
+          <Text style={sideMenuStyles.optionText}>Opción 2</Text>
         </TouchableOpacity>
       </Animated.View>
     </>

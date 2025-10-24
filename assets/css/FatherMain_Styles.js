@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export const COLORS = {
     PRIMARY: '#00C8B3',         
-    // ACCENT_YELLOW: '#ffec7eff',   
     ACCENT_YELLOW: '#ffec7eff',   
     WHITE: '#FFFFFF',           
     TEXT: '#ffffffff',            
@@ -65,14 +64,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 20,
     },
-    contentText: {
-        fontSize: 18,
-        color: COLORS.TEXT,
-        marginBottom: 10,
-        textAlign: 'center',
-        fontFamily: 'NuevaFuente',
-
-    },
 
     card: {
         backgroundColor: COLORS.CARD_BACKGROUND,
@@ -117,4 +108,30 @@ export const styles = StyleSheet.create({
         opacity: 0.7,
         fontFamily: 'NuevaFuente',
     },
+
+    addButton: {
+        // position: 'absolute',
+        bottom: 30,
+        alignSelf: 'center',
+        backgroundColor: '#ff3b3b', 
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 10,
+        zIndex: 20,
+    },
+
+    addButtonText: {
+        fontSize: 45,
+        color: COLORS.WHITE,
+        marginTop: -3,
+        fontFamily: 'NuevaFuente',
+    },
+
 });
