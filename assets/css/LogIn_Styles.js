@@ -1,16 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-// Paleta de Colores
 export const COLORS = {
-    BACKGROUND: '#00C8B3',         // Turquesa/Menta (Botón principal)
-    ACCENT_YELLOW: '#FFD700',   // Amarillo (Botón de niño/Recompensas)
-    LIGHT_GRAY: '#E0E0E0',      // Gris para bordes y líneas
+    BACKGROUND: '#00C8B3',        
+    ACCENT_YELLOW: '#FFD700',   
+    LIGHT_GRAY: '#E0E0E0',    
     WHITE: '#FFFFFF',
     BROWN: '#CD8006',
-    BLACK: '#000000ff'     // Un fondo más neutral para el container
+    BLACK: '#000000ff'     
 };
 
-// Estilos de la Interfaz
 export const styles = StyleSheet.create({
     fullScreen: {
         flex: 1,
@@ -23,7 +21,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 50,
         paddingHorizontal: 30,
-        // *** IMPORTANTE: Establecer 'relative' para que la imagen se posicione correctamente ***
         position: 'relative', 
     },
 
@@ -33,21 +30,19 @@ export const styles = StyleSheet.create({
         marginRight:115,
         marginTop:-45,
         transform: [{ rotate: '40deg' }], 
-        // POSICIONAMIENTO ABSOLUTO: Lo saca del flujo normal para poder apilarlo
         position: 'absolute',
-        top: 60, // Ajusta la posición para que se centre detrás de los elementos superiores
+        top: 60, 
         right: 40,
-        // Z-INDEX BAJO: Asegura que la imagen esté detrás de todo el texto (que tiene un zIndex implícito mayor)
         zIndex: 1, 
     },
 
     title: {
         fontSize: 40,
-        fontWeight: '700',
         color: COLORS.ACCENT_YELLOW,
-        marginTop:-30,
+        marginTop:-20,
         marginBottom: 30,
         zIndex: 2, 
+        fontFamily: 'NuevaFuente',
     },
 
     textoCreaCuenta:{
@@ -71,7 +66,7 @@ export const styles = StyleSheet.create({
         marginBottom: 15,
         backgroundColor: COLORS.WHITE, 
         height: 55, 
-        outlineColor: COLORS.BLACK,           // color del borde normal
+        outlineColor: COLORS.BLACK, 
     },
 
     LogInButton: {
@@ -90,6 +85,7 @@ export const styles = StyleSheet.create({
     loginButtonText: {
         color: COLORS.WHITE,
         fontSize: 16,
+        fontFamily: 'NuevaFuente',
     },
 
     QrButton: {
@@ -105,6 +101,7 @@ export const styles = StyleSheet.create({
     QrButtonText: {
         color: COLORS.WHITE,
         fontSize: 16,
+        fontFamily: 'NuevaFuente',
     },
 
     secondaryText: {

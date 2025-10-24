@@ -1,26 +1,43 @@
-// App.js (o archivo de Navegación principal)
-import * as React from 'react';
+// App.js
+import 'react-native-gesture-handler';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
 
-// Importa tus pantallas
+// 🔹 Importa tus pantallas
 import LogIn from './LogIn';
+import FatherMain from './FatherMain';
+import CreateSon from './CreateSon';
 
 const Stack = createNativeStackNavigator();
 
-function AppNavigator() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen 
-          name="Login" 
-          component={LogIn} 
-          options={{ headerShown: false }} // Ocultar la barra de navegación en el Login
-        />     
-        
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+export default function App() {
 
-export default AppNavigator; 
+    const [fontsLoaded] = useFonts({
+        'NuevaFuente': require('./assets/fonts/Kids Bus.otf')
+    });
+
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="FatherMain" screenOptions={{ headerShown: false }}>
+
+                <Stack.Screen 
+                    name="LogIn" 
+                    component={LogIn} 
+                />
+
+                <Stack.Screen 
+                    name="FatherMain" 
+                    component={FatherMain} 
+                />
+
+                <Stack.Screen 
+                    name="CreateSon" 
+                    component={CreateSon} 
+                />
+
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
